@@ -136,11 +136,25 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	}
 
 	public boolean add(E data) {
-		return true; // TODO
+		if(data == null){
+			throw new NullPointerException("data cannot be null");
+		}
+		Node curNode = this.tail;
+		curNode = curNode.getPrev();
+
+		//Code adapted from Week 4 Discussion quiz Q11.1 (again)
+		curNode.next.prev = newNode;
+		newNode.next = curNode.getNext();
+		newNode.prev = curNode;
+		currNode.next = newNode;
 	}
 
 	public E set(int index, E data) {
-		return (E) null; // TODO
+		Node curNode = this.head;
+		for(int i = 0; i < index; i++){
+			curNode = curNode.getNext();
+		}
+		curNode.setElement(data);
 	}
 
 	public E remove(int index) {
