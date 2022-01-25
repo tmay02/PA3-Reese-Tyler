@@ -112,8 +112,12 @@ public class MyLinkedList<E> extends AbstractList<E> {
 			throw new IndexOutOfBoundsException("Index cannot be less than 0.");
 		}
 		if(index >= this.size()){
+<<<<<<< Updated upstream
 			throw new IndexOutOfBoundsException(
 				"Index cannot be equal to or greater than size of list.");
+=======
+			throw new IndexOutOfBoundsException("Index cannot >= size of list.");
+>>>>>>> Stashed changes
 		}
 		Node curNode = this.head;
 		for(int i = -1; i < index; i++){
@@ -222,6 +226,10 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	}
 
 	protected Node getNth(int index) {
-		return (Node) null;  // TODO
+		Node curNode = this.head;
+		for(int i = 0; i < index; i++){
+			curNode = curNode.getNext();
+		}
+		return curNode;
 	}
 }
