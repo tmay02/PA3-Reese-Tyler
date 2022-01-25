@@ -3,7 +3,9 @@
  * ID: A16792035, A17074829
  * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
  * Sources used: Coding done jointly, Week 4 Quiz
- * 2-4 sentence file description here
+ * This file contains all the methods needed to modify and
+ * interpret linked lists. Nodes are created in doubly linked
+ * lists with both a dummy header and tail
  */
 
 import java.util.AbstractList;
