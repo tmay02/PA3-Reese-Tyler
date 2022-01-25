@@ -128,6 +128,13 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	@Override
 	public void add(int index, E data) {
+		if(data == null){
+			throw new NullPointerException("data cannot be null");
+		}
+		if(index < 0 || index > this.size){
+			throw new NullPointerException("Index cannot exceed size or be less than 0");
+		}
+
 		Node curNode = this.head;
 		for(int i = 0; i < index; i++){
 			curNode = curNode.getNext();
@@ -155,6 +162,8 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		newNode.next = curNode.getNext();
 		newNode.prev = curNode;
 		currNode.next = newNode;
+
+		return true;
 	}
 
 	public E set(int index, E data) {
