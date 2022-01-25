@@ -170,10 +170,9 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		curNode.next.prev = newNode;
 		newNode.next = curNode.getNext();
 		newNode.prev = curNode;
-		currNode.next = newNode;
+		curNode.next = newNode;
 
 		return true;
-		curNode.next = newNode;
 	}
 
 	public E set(int index, E data) {
@@ -181,7 +180,9 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		for(int i = 0; i < index; i++){
 			curNode = curNode.getNext();
 		}
+		E prevElement = curNode.getElement();
 		curNode.setElement(data);
+		return prevElement;
 	}
 
 	public E remove(int index) {
