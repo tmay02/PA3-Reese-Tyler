@@ -1,9 +1,7 @@
 /**
- * TODO: Add your file header
- * Name:
- * Email:
- * Sources used: Put "None" if you did not have any external help
- * 
+ * Name: Tyler May, Reese Whitlock
+ * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
+ * Sources used: Coding done jointly
  * 2-4 sentence file description here
  */
 
@@ -12,7 +10,7 @@ import java.util.AbstractList;
 /** 
  * TODO: Add class header here 
  */
-//this is a test change
+
 public class MyLinkedList<E> extends AbstractList<E> {
 
 	int size;
