@@ -1,7 +1,8 @@
 /**
  * Name: Tyler May, Reese Whitlock
+ * ID: A16792035, ADD YOURS HERE REESE
  * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
- * Sources used: Coding done jointly
+ * Sources used: Coding done jointly, Week 4 Quiz
  * 2-4 sentence file description here
  */
 
@@ -106,8 +107,17 @@ public class MyLinkedList<E> extends AbstractList<E> {
 
 	@Override
 	public void add(int index, E data) {
-		/* Add your implementation here */
-		// TODO
+		Node curNode = this.head;
+		for(int i = 0; i < index; i++){
+			curNode = curNode.getNext();
+		}
+		Node newNode = new Node(data);
+
+		//Code adapted from Week 4 Discussion quiz Q11.1
+		curNode.next.prev = newNode;
+		newNode.next = curNode.getNext();
+		newNode.prev = curNode;
+		currNode.next = newNode;
 	}
 
 	public boolean add(E data) {
