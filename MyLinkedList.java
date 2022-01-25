@@ -108,6 +108,12 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	@Override
 	public E get(int index) {
+		if(index < 0){
+			throw new IndexOutOfBoundsException("Index cannot be less than 0.");
+		}
+		if(index >= this.size()){
+			throw new IndexOutOfBoundsException("Index cannot be equal to or greater than size of list.");
+		}
 		Node curNode = this.head;
 		for(int i = -1; i < index; i++){
 			curNode = curNode.getNext();
@@ -133,6 +139,8 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		newNode.next = curNode.getNext();
 		newNode.prev = curNode;
 		curNode.next = newNode;
+
+		this.size++;
 	}
 
 	public boolean add(E data) {
