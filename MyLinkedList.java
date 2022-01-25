@@ -94,6 +94,8 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		this.size = 0;
 		this.head = new Node(null);
 		this.tail = new Node(null);
+		this.head.next = this.tail;
+		this.tail.prev = this.head;
 	}
 
 	/**
@@ -134,7 +136,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		if(data == null){
 			throw new NullPointerException("data cannot be null");
 		}
-		if(index < 0 || index >= this.size){
+		if(index < 0 || index > this.size){
 			throw new NullPointerException("Index cannot exceed size or be less than 0");
 		}
 
@@ -172,10 +174,18 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		newNode.prev = curNode;
 		curNode.next = newNode;
 
+		this.size++;
+
 		return true;
 	}
 
 	public E set(int index, E data) {
+		if(data == null){
+			throw new NullPointerException("data cannot be null");
+		}
+		if(index < 0 || index > this.size){
+			throw new NullPointerException("Index cannot exceed size or be less than 0");
+		}
 		Node curNode = this.head;
 		for(int i = 0; i < index; i++){
 			curNode = curNode.getNext();
