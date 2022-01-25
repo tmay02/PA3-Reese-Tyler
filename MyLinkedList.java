@@ -132,7 +132,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		if(data == null){
 			throw new NullPointerException("data cannot be null");
 		}
-		if(index < 0 || index > this.size){
+		if(index < 0 || index >= this.size){
 			throw new NullPointerException("Index cannot exceed size or be less than 0");
 		}
 
@@ -168,13 +168,11 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		curNode.next.prev = newNode;
 		newNode.next = curNode.getNext();
 		newNode.prev = curNode;
-<<<<<<< Updated upstream
-		currNode.next = newNode;
+		curNode.next = newNode;
+
+		this.size++;
 
 		return true;
-=======
-		curNode.next = newNode;
->>>>>>> Stashed changes
 	}
 
 	public E set(int index, E data) {
@@ -186,7 +184,21 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	}
 
 	public E remove(int index) {
-		return (E) null; // TODO
+		if(index < 0 || index >= this.size){
+			throw new NullPointerException("Index cannot exceed size or be less than 0");
+		}
+
+		Node curNode = this.head;
+		for(int i = -1; i < index; i++){
+			curNode = curNode.getNext();
+		}
+
+		//Code adapted from Week 4 Discussion quiz Q11.1
+		curNode.next.prev = curNode.getPrev();
+		curNode.prev.next = curNode.getNext();
+
+		this.size--;
+		return (E) curNode.getElement();
 	}
 
 	/**
