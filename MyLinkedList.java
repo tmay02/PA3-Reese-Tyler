@@ -90,14 +90,15 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	//  Implementation of the MyLinkedList Class
 	/** Only 0-argument constructor is defined */
 	public MyLinkedList() {
-		/* Add your implementation here */
-		// TODO
+		this.size = 0;
+		this.head = new Node(null);
+		this.tail = new Node(null);
 	}
 
+	// Returns size of list
 	@Override
 	public int size() {
-		// need to implement the size method
-		return 0; // TODO
+		return this.size;
 	}
 
 	@Override
