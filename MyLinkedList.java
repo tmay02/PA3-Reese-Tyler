@@ -1,6 +1,6 @@
 /**
  * Name: Tyler May, Reese Whitlock
- * ID: A16792035, ADD YOURS HERE REESE
+ * ID: A16792035, A17074829
  * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
  * Sources used: Coding done jointly, Week 4 Quiz
  * 2-4 sentence file description here
@@ -94,17 +94,32 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		this.tail = new Node(null);
 	}
 
-	// Returns size of list
+	/**
+	 * @return size of list
+	 */
 	@Override
 	public int size() {
 		return this.size;
 	}
 
+	/**
+	 * @param index - index to get element from
+	 * @return returns element at given index
+	 */
 	@Override
 	public E get(int index) {
-		return (E) null;  // TODO
+		Node curNode = this.head;
+		for(int i = -1; i < index; i++){
+			curNode = curNode.getNext();
+		}
+		return (E) curNode.getElement();
 	}
 
+	/**
+	 * Adds element at given index
+	 * @param index - index to add element
+	 * @param data - element to add
+	 */
 	@Override
 	public void add(int index, E data) {
 		Node curNode = this.head;
@@ -117,7 +132,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		curNode.next.prev = newNode;
 		newNode.next = curNode.getNext();
 		newNode.prev = curNode;
-		currNode.next = newNode;
+		curNode.next = newNode;
 	}
 
 	public boolean add(E data) {
