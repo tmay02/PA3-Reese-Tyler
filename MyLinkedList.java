@@ -234,6 +234,9 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	}
 
 	protected Node getNth(int index) {
+		if(index < 0 || index >= this.size){
+			throw new IndexOutOfBoundsException("Index cannot exceed size or be less than 0");
+		}
 		Node curNode = this.head;
 		for(int i = -1; i < index; i++){
 			curNode = curNode.getNext();
