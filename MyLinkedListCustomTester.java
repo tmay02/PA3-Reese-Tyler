@@ -32,16 +32,22 @@ public class MyLinkedListCustomTester {
 	}
 
 	private void populateTwoIntList(){
-		twoIntList.add(1);
-		twoIntList.add(2);
+		this.twoIntList.add(1);
+		this.twoIntList.add(2);
 	}
 
 	/**
-	 * TODO: test the add method when [fill in a possible edge case here]
+	 * Test the add method when adding a null element
 	 */
 	@Test
 	public void testAdd() {
-
+		boolean test = false;
+		try{
+			this.emptyStringList.add(null);
+		} catch (NullPointerException E){
+			test = true;
+		}
+		assertTrue(test);
 	}
 
 	/**
