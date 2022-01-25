@@ -112,7 +112,8 @@ public class MyLinkedList<E> extends AbstractList<E> {
 			throw new IndexOutOfBoundsException("Index cannot be less than 0.");
 		}
 		if(index >= this.size()){
-			throw new IndexOutOfBoundsException("Index cannot be equal to or greater than size of list.");
+			throw new IndexOutOfBoundsException(
+				"Index cannot be equal to or greater than size of list.");
 		}
 		Node curNode = this.head;
 		for(int i = -1; i < index; i++){
@@ -122,9 +123,9 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	}
 
 	/**
-	 * Adds element at given index
-	 * @param index - index to add element
-	 * @param data - element to add
+	 * Adds node at given index
+	 * @param index - index to add node
+	 * @param data - data for the new node
 	 */
 	@Override
 	public void add(int index, E data) {
@@ -150,20 +151,30 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		this.size++;
 	}
 
+	/**
+	 * Adds node to the end of the list
+	 * @param data - data for the new node
+	 * @return true if successful, false if otherwise
+	 */
 	public boolean add(E data) {
 		if(data == null){
 			throw new NullPointerException("data cannot be null");
 		}
 		Node curNode = this.tail;
 		curNode = curNode.getPrev();
+		Node newNode = new Node(data);
 
 		//Code adapted from Week 4 Discussion quiz Q11.1 (again)
 		curNode.next.prev = newNode;
 		newNode.next = curNode.getNext();
 		newNode.prev = curNode;
+<<<<<<< Updated upstream
 		currNode.next = newNode;
 
 		return true;
+=======
+		curNode.next = newNode;
+>>>>>>> Stashed changes
 	}
 
 	public E set(int index, E data) {
@@ -178,12 +189,24 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		return (E) null; // TODO
 	}
 
+	/**
+	 * Removes all nodes from list
+	 */
 	public void clear() {
-		/* Add your implementation here */
+		this.size = 0;
+		head.setNext(null);
+		tail.setPrev(null);
 	}
 
+	/**
+	 * @return true if list is empty, return false otherwise
+	 */
 	public boolean isEmpty() {
-		return true;  // TODO
+		if(this.size == 0){
+			return true; 
+		} else {
+			return false;
+		}
 	}
 
 	protected Node getNth(int index) {
