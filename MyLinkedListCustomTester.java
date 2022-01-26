@@ -57,7 +57,9 @@ public class MyLinkedListCustomTester {
 	@Test
 	public void testAddWithIndexTestOne() {
 		this.populateTwoIntList();
+		assertEquals(2, this.twoIntList.size());
 		this.twoIntList.add(1, 3);
+		assertEquals(3, this.twoIntList.size());
 		assertEquals(Integer.valueOf(3), this.twoIntList.head.next.next.data);
 		assertEquals(Integer.valueOf(3), this.twoIntList.tail.prev.prev.data);
 		assertEquals(Integer.valueOf(2), this.twoIntList.tail.prev.data);
@@ -71,6 +73,13 @@ public class MyLinkedListCustomTester {
 	@Test
 	public void testAddWithIndexTestTwo() {
 		boolean test = false;
+		try{
+			this.emptyStringList.add(-1, "String!");
+		} catch (IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
+		test = false;
 		try{
 			this.emptyStringList.add(2, "String!");
 		} catch (IndexOutOfBoundsException E){
@@ -96,27 +105,59 @@ public class MyLinkedListCustomTester {
 	}
 
 	/**
-	 * TODO: test the set method when [...]
+	 * Test the set method when index is out of bounds
 	 */
 	@Test
 	public void testSet() {
-
+		boolean test = false;
+		try{
+			this.emptyStringList.set(-1, "String!");
+		} catch (IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
+		test = false;
+		try{
+			this.emptyStringList.set(2, "String!");
+		} catch (IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
 	}
 
 	/**
-	 * TODO: test the remove method when [...]
+	 * Test the remove method when index is out of bounds
 	 */
 	@Test
 	public void testRemoveTestOne() {
-
+		boolean test = false;
+		try{
+			this.emptyStringList.remove(-1);
+		} catch (IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
+		test = false;
+		try{
+			this.emptyStringList.remove(2);
+		} catch (IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
 	}
 	
 	/**
-	 * TODO: test the remove method when [fill in another one here]
+	 * Test the remove method when removing the middle element
 	 */
 	@Test
 	public void testRemoveTestTwo() {
-
+		this.populateTwoIntList();
+		this.twoIntList.add(3);
+		assertEquals(3, this.twoIntList.size());
+		assertEquals(Integer.valueOf(2), this.twoIntList.remove(1));
+		assertEquals(Integer.valueOf(1), this.twoIntList.tail.prev.prev.data);
+		assertEquals(Integer.valueOf(3), this.twoIntList.head.next.next.data);
+		assertEquals(2, this.twoIntList.size());
 	}
 
 	/**
