@@ -2,7 +2,7 @@
  * Name: Tyler May, Reese Whitlock
  * ID: A16792035, A17074829
  * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
- * Sources used: Coding done jointly, 
+ * Sources used: Coding done jointly
  * 2-4 sentence file description here
  */
 
@@ -65,11 +65,17 @@ public class MyLinkedListCustomTester {
 	}
 
 	/**
-	 * TODO: test the add with index method when [fill in another one here]
+	 * Test the add with index method when index is out of bounds
 	 */	
 	@Test
 	public void testAddWithIndexTestTwo() {
-
+		boolean test = false;
+		try{
+			this.emptyStringList.add(2, "String!");
+		} catch (IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
 	}
 
 	/**
