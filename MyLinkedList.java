@@ -218,8 +218,10 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	public void clear() {
 		this.size = 0;
-		head.setNext(null);
-		tail.setPrev(null);
+		this.head = new Node(null);
+		this.tail = new Node(null);
+		this.head.next = this.tail;
+		this.tail.prev = this.head;
 	}
 
 	/**

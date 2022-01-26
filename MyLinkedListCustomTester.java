@@ -89,19 +89,47 @@ public class MyLinkedListCustomTester {
 	}
 
 	/**
-	 * TODO: test the get method when [...]
+	 * test the get method when index is out of bounds
 	 */
 	@Test
 	public void testGet() {
-
+		this.populateTwoIntList();
+		boolean test = false;
+		try{
+			this.twoIntList.get(-1);
+		} catch(IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
+		test = false;
+		try{
+			this.twoIntList.get(2);
+		} catch(IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
 	}
 
 	/**
-	 * TODO: test the getNth method when [...]
+	 * TODO: test the getNth method when index is out of bounds
 	 */
 	@Test
 	public void testGetNth() {
-
+		this.populateTwoIntList();
+		boolean test = false;
+		try{
+			this.twoIntList.get(-1);
+		} catch(IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
+		test = false;
+		try{
+			this.twoIntList.get(2);
+		} catch(IndexOutOfBoundsException E){
+			test = true;
+		}
+		assertTrue(test);
 	}
 
 	/**
@@ -161,18 +189,24 @@ public class MyLinkedListCustomTester {
 	}
 
 	/**
-	 * TODO: test the clear method when [...]
+	 * TODO: test the clear method when the list is empty
 	 */
 	@Test
 	public void testClear() {
-
+		this.emptyStringList.clear();
+		assertEquals(emptyStringList.head.data, null);
+		assertEquals(emptyStringList.tail.data, null);
+		assertEquals(emptyStringList.head.next, emptyStringList.tail);
+		assertEquals(emptyStringList.tail.prev, emptyStringList.head);
+		assertEquals(emptyStringList.size, 0);
 	}
 
 	/**
-	 * TODO: test the size method when [...]
+	 * TODO: test the size method when the list has 2 items
 	 */
 	@Test
 	public void testSize() {
-
+		this.populateTwoIntList();
+		assertEquals(2, this.twoIntList.size());
 	}
 }
