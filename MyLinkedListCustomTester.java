@@ -190,7 +190,7 @@ public class MyLinkedListCustomTester {
 	}
 
 	/**
-	 * TODO: test the clear method when the list is empty
+	 * Test the clear method when the list is empty
 	 */
 	@Test
 	public void testClear() {
@@ -203,7 +203,7 @@ public class MyLinkedListCustomTester {
 	}
 
 	/**
-	 * TODO: test the size method when the list has 2 items
+	 * Test the size method when the list has 2 items
 	 */
 	@Test
 	public void testSize() {
