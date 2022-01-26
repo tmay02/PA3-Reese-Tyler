@@ -20,6 +20,7 @@ public class MyLinkedListCustomTester {
 
 	private MyLinkedList<String> emptyStringList;
 	private MyLinkedList<Integer> twoIntList;
+	private Integer[] intList = {1, 2};
 	/**
 	 * This sets up the test fixture. JUnit invokes this method before
 	 * every testXXX method. The @Before tag tells JUnit to run this method
@@ -32,8 +33,8 @@ public class MyLinkedListCustomTester {
 	}
 
 	private void populateTwoIntList(){
-		this.twoIntList.add(1);
-		this.twoIntList.add(2);
+		twoIntList.add(this.intList[0]);
+		twoIntList.add(this.intList[1]);
 	}
 
 	/**
