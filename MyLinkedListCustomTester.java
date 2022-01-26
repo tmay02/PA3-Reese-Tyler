@@ -3,18 +3,17 @@
  * ID: A16792035, A17074829
  * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
  * Sources used: Coding done jointly
- * 2-4 sentence file description here
+ * jUnit is imported to help test the methods in MyLinkedList.java. 
+ * The file only implements tests not found in the public tests.
  */
 
 import static org.junit.Assert.*;
 import org.junit.*;
 
 /**
- * TODO: Add your class header
- * 
- * IMPORTANT: Do not change the method headers and points are awarded 
- * only if your test cases cover cases that the public tester file
- * does not take into account.
+ * This class contains all of our custom tests which test scenarios
+ * not previously tested by the public tester. The majority of
+ * tests are testing out of bounds and null exceptions.
  */
 public class MyLinkedListCustomTester {
 
@@ -63,8 +62,10 @@ public class MyLinkedListCustomTester {
 		assertEquals(Integer.valueOf(3), this.twoIntList.head.next.next.data);
 		assertEquals(Integer.valueOf(3), this.twoIntList.tail.prev.prev.data);
 		assertEquals(Integer.valueOf(2), this.twoIntList.tail.prev.data);
-		assertEquals(Integer.valueOf(1), this.twoIntList.head.next.next.prev.data);
-		assertEquals(Integer.valueOf(2), this.twoIntList.tail.prev.prev.next.data);
+		assertEquals(Integer.valueOf(1), 
+			this.twoIntList.head.next.next.prev.data);
+		assertEquals(Integer.valueOf(2), 
+			this.twoIntList.tail.prev.prev.next.data);
 	}
 
 	/**
