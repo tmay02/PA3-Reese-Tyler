@@ -3,15 +3,16 @@
  * ID: A16792035, A17074829
  * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
  * Sources used: Coding done jointly, Week 4 Quiz
- * This file contains all the methods needed to modify and
- * interpret linked lists. Nodes are created in doubly linked
- * lists with both a dummy header and tail
+ * This file ontains the generic class MyLinkedList, which was modified by us.
+ * It also contains the given protected class Node.
  */
 
 import java.util.AbstractList;
 
 /** 
- * TODO: Add class header here 
+ * This class contains all the methods needed to modify and interpret linked
+ * lists. Important instance variables include int size, Node head,
+ * and Node tail.
  */
 
 public class MyLinkedList<E> extends AbstractList<E> {
@@ -99,6 +100,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	}
 
 	/**
+	 * Gets size of list
 	 * @return size of list
 	 */
 	@Override
@@ -107,6 +109,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	}
 
 	/**
+	 * Gets the element at a given index
 	 * @param index - index to get element from
 	 * @return returns element at given index
 	 */
@@ -178,7 +181,11 @@ public class MyLinkedList<E> extends AbstractList<E> {
 
 		return true;
 	}
-
+	/**
+	 * Sets a node to a different value
+	 * @param index - index of changed element
+	 * @param data - value to change data to
+	 */
 	public E set(int index, E data) {
 		if(data == null){
 			throw new NullPointerException("data cannot be null");
@@ -194,7 +201,12 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		curNode.setElement(data);
 		return prevElement;
 	}
-
+	
+	/**
+	 * Removes node at specified index
+	 * @param index - index to remove node
+	 * @return element that was removed
+	 */
 	public E remove(int index) {
 		if(index < 0 || index >= this.size){
 			throw new IndexOutOfBoundsException("Index cannot exceed size or be less than 0");
@@ -225,6 +237,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	}
 
 	/**
+	 * Determines if list is empty
 	 * @return true if list is empty, return false otherwise
 	 */
 	public boolean isEmpty() {
@@ -235,6 +248,11 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		}
 	}
 
+	/**
+	 * Gets node at specified index
+	 * @param index - index to get node
+	 * @return node
+	 */
 	protected Node getNth(int index) {
 		if(index < 0 || index >= this.size){
 			throw new IndexOutOfBoundsException("Index cannot exceed size or be less than 0");
