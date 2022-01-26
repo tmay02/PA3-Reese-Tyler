@@ -51,11 +51,17 @@ public class MyLinkedListCustomTester {
 	}
 
 	/**
-	 * TODO: test the add with index method when [...]
+	 * Test the add with index method when adding to the middle of the list
 	 */
 	@Test
 	public void testAddWithIndexTestOne() {
-
+		this.populateTwoIntList();
+		this.twoIntList.add(1, 3);
+		assertEquals(Integer.valueOf(3), this.twoIntList.head.next.next.data);
+		assertEquals(Integer.valueOf(3), this.twoIntList.tail.prev.prev.data);
+		assertEquals(Integer.valueOf(2), this.twoIntList.tail.prev.data);
+		assertEquals(Integer.valueOf(1), this.twoIntList.head.next.next.prev.data);
+		assertEquals(Integer.valueOf(2), this.twoIntList.tail.prev.prev.next.data);
 	}
 
 	/**
